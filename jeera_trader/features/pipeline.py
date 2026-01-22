@@ -3,6 +3,7 @@ Feature engineering pipeline.
 Orchestrates all feature extraction and creates final feature set for ML.
 """
 
+import numpy as np
 import pandas as pd
 
 from jeera_trader.database.repository import (
@@ -220,6 +221,34 @@ def save_features_to_db(features_df: pd.DataFrame) -> int:
         return 0
 
     log_progress("Saving features to database")
+
+    # Keep only columns that exist in the schema
+    schema_columns = [
+        'date', 'close', 'open', 'high', 'low',
+        'ma_5', 'ma_10', 'ma_20', 'ma_50',
+        'rsi_14', 'macd', 'macd_signal', 'macd_hist',
+        'bb_upper', 'bb_middle', 'bb_lower', 'bb_width',
+        'volatility_20', 'price_momentum',
+        'year', 'month', 'quarter', 'day_of_week', 'day_of_month', 'week_of_year',
+        'month_sin', 'month_cos', 'quarter_sin', 'quarter_cos', 'crop_phase',
+        'temp_avg', 'temp_min', 'temp_max', 'rainfall',
+        'rainfall_7d', 'rainfall_30d', 'humidity', 'temp_anomaly',
+        'volume', 'open_interest', 'volume_ma_20', 'oi_change_5', 'volume_oi_ratio',
+        'close_lag_1', 'close_lag_5', 'close_lag_10',
+        'volume_lag_1', 'volume_lag_5',
+        'target_price_1d', 'target_return_1d'
+    ]
+
+    # Filter dataframe to only include schema columns
+    available_columns = [col for col in schema_columns if col in features_df.columns]
+    features_df = features_df[available_columns].copy()
+
+    # Convert date to string if it's a Timestamp
+    if 'date' in features_df.columns:
+        features_df['date'] = features_df['date'].astype(str)
+
+    # Convert any NaN/inf to None for SQL compatibility
+    features_df = features_df.replace([np.inf, -np.inf], np.nan)
 
     repo = FeaturesRepository()
     saved_count = repo.bulk_insert_from_dataframe(features_df)

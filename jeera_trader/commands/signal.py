@@ -95,10 +95,15 @@ def run_signal(args: Any) -> int:
 
         # Generate signal
         log_progress("Generating trading signal")
+
+        # Simple confidence based on prediction magnitude
+        predicted_return_pct = ((predicted_price - current_price) / current_price) * 100
+        confidence = min(0.9, max(0.5, abs(predicted_return_pct) / 10))  # Scale confidence by return magnitude
+
         signal = generate_signal(
             current_price=current_price,
             predicted_price=predicted_price,
-            confidence=None,  # Can add confidence calculation later
+            confidence=confidence,
         )
 
         # Calculate risk parameters
