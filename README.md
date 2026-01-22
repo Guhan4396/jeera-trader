@@ -1,6 +1,14 @@
-# Jeera Trader
+# Jeera Trader 📈
+
+[![GitHub](https://img.shields.io/badge/github-jeera--trader-blue?logo=github)](https://github.com/Guhan4396/jeera-trader)
+[![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![ML](https://img.shields.io/badge/ML-Random%20Forest-orange.svg)](https://scikit-learn.org/)
+[![Data](https://img.shields.io/badge/data-100%25%20FREE-success.svg)](https://github.com/Guhan4396/jeera-trader)
 
 A machine learning-based predictive system for jeera (cumin) futures trading on NCDEX.
+
+**⚡ 100% Free Data Sources | 🤖 Random Forest ML | 📊 50+ Features | 🎯 Automated Signals**
 
 ## Overview
 
