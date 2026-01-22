@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeera Trader - ML Trading System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            color: white;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            opacity: 0.95;
+            margin-bottom: 30px;
+        }
+
+        .badges {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .badge {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .content {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: -40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .feature-card {
+            padding: 30px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            color: #667eea;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 40px 0;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: white;
+            margin-top: 40px;
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .code-block {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📈 Jeera Trader</h1>
+            <p class="subtitle">ML-Based Predictive Trading System for NCDEX Jeera Futures</p>
+            <div class="badges">
+                <span class="badge">🆓 100% Free Data</span>
+                <span class="badge">🤖 Random Forest ML</span>
+                <span class="badge">📊 50+ Features</span>
+                <span class="badge">🎯 Automated Signals</span>
+                <span class="badge">🐍 Python 3.8+</span>
+            </div>
+        </header>
+
+        <div class="content">
+            <div class="cta-buttons">
+                <a href="https://github.com/Guhan4396/jeera-trader" class="btn btn-primary" target="_blank">View on GitHub</a>
+                <a href="https://github.com/Guhan4396/jeera-trader/blob/main/QUICKSTART.md" class="btn btn-secondary" target="_blank">Quick Start Guide</a>
+            </div>
+
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">40</div>
+                    <div class="stat-label">Python Files</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">6,622</div>
+                    <div class="stat-label">Lines of Code</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">ML Features</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">FREE</div>
+                    <div class="stat-label">Data Sources</div>
+                </div>
+            </div>
+
+            <h2 style="text-align: center; margin: 40px 0 30px 0; color: #667eea;">✨ Key Features</h2>
+
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Real Data Collection</h3>
+                    <p>Automated collection from NCDEX Bhavcopy (official CSV) and Open-Meteo weather API. 100% free, no API keys needed!</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">⚙️</div>
+                    <h3>Feature Engineering</h3>
+                    <p>50+ engineered features including technical indicators (RSI, MACD, Bollinger Bands), seasonal patterns, and weather metrics.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>Machine Learning</h3>
+                    <p>Random Forest model with hyperparameter tuning, comprehensive evaluation metrics, and model versioning.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Trading Signals</h3>
+                    <p>Automated signal generation: STRONG_BUY, BUY, HOLD, SELL, STRONG_SELL with confidence scores and reasoning.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Risk Management</h3>
+                    <p>Automatic stop-loss and take-profit calculations, position sizing, and risk/reward ratio analysis.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔁</div>
+                    <h3>Daily Automation</h3>
+                    <p>Complete daily workflow: collect data → generate features → train/predict → generate signals. Cron-ready!</p>
+                </div>
+            </div>
+
+            <h2 style="text-align: center; margin: 40px 0 20px 0; color: #667eea;">🚀 Quick Start</h2>
+
+            <div class="code-block">
+<pre style="margin: 0;">
+# Install
+pip install -e .
+
+# Initialize database
+jeera-trader db --init
+
+# Collect data (FREE!)
+jeera-trader collect --source all --start-date 2024-01-01 --end-date 2024-12-31
+
+# Generate features
+jeera-trader features --start-date 2024-01-01 --end-date 2024-12-31
+
+# Train model
+jeera-trader train --model rf
+
+# Get trading signal
+jeera-trader signal
+</pre>
+            </div>
+
+            <h2 style="text-align: center; margin: 40px 0 20px 0; color: #667eea;">📚 Documentation</h2>
+
+            <div style="text-align: center; margin: 20px 0;">
+                <a href="https://github.com/Guhan4396/jeera-trader/blob/main/README.md" style="color: #667eea; text-decoration: none; font-size: 1.1rem;">📖 Full Documentation →</a>
+            </div>
+
+            <h2 style="text-align: center; margin: 40px 0 20px 0; color: #667eea;">💡 Architecture</h2>
+
+            <div style="background: #f8f9fa; padding: 30px; border-radius: 15px; margin: 20px 0;">
+                <p style="text-align: center; margin-bottom: 20px;"><strong>Complete End-to-End ML Trading Pipeline</strong></p>
+                <p style="text-align: center;">
+                    <strong>Data Collection</strong> (NCDEX + Weather) →
+                    <strong>Feature Engineering</strong> (50+ features) →
+                    <strong>Model Training</strong> (Random Forest) →
+                    <strong>Signal Generation</strong> (5 types) →
+                    <strong>Risk Management</strong> (Stop-loss, Take-profit)
+                </p>
+            </div>
+
+            <h2 style="text-align: center; margin: 40px 0 20px 0; color: #667eea;">⚠️ Disclaimer</h2>
+
+            <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 20px; border-radius: 5px; margin: 20px 0;">
+                <p><strong>Educational Purpose Only:</strong> This software is for learning and research. Trading commodities involves substantial risk. Not financial advice. Always do your own research and consult professionals before trading real money.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Guhan Senthil Subramanian | MIT License</p>
+        <p style="margin-top: 10px;">Built with ❤️ using Python, scikit-learn, and Claude AI</p>
+    </footer>
+</body>
+</html>
